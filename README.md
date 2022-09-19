@@ -23,7 +23,7 @@ This is a template I wrote for [my blog](https://apoorvaj.io). I figured it woul
 
 This is built with [Astro](https://astro.build/), with KaTeX for math rendering, and Tailwind for CSS. If these names mean nothing to you, no worries. :) The system does as much as possible at build time, producing small HTML and CSS files with no mandatory JavaScript.
 
-Before this, my blog was built on [Zola](https://www.getzola.org/), which doesnt' have a plugin system, and has its own quirky and limited [component system](https://www.getzola.org/documentation/content/shortcodes/). This new stack is a lot more programmable and allows me to use any of the great web libraries out there for syntax highlighting, Markdown parsing, and math typesetting. It also enables [interactive content](https://docs.astro.build/en/concepts/islands/) alongside the static HTML, with pretty [standard components](https://docs.astro.build/en/core-concepts/framework-components/).
+Before this, my blog was built on [Zola](https://www.getzola.org/), which doesn't have a plugin system, and has its own quirky and limited [component system](https://www.getzola.org/documentation/content/shortcodes/). This new stack is a lot more programmable and allows me to use any of the great web libraries out there for syntax highlighting, Markdown parsing, and math typesetting. It also enables [interactive content](https://docs.astro.build/en/concepts/islands/) alongside the static HTML, with pretty [standard components](https://docs.astro.build/en/core-concepts/framework-components/).
 
 ## Set up
 
