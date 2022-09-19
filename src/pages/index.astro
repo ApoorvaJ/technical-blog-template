@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Page.astro";
+
+const globs = await Astro.glob("./*.mdx");
+const posts = globs.map((post) => ({
+	date: Date.parse(post.frontmatter.date),
+	title: post.frontmatter.title,
+	url: post.url,
+}));
+const sortedPosts = posts.sort((a, b) => b.date - a.date);
+---
+
+<Layout title="Technical blog">
+	<div style="margin-bottom: 2rem;" class="text-6xl font-serif">
+		Technical blog
+	</div>
+
+	<div class="text-2xl font-serif">Publications</div>
+
+	<p>
+	<a href="https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A673368&dswid=9696">Moose crash test dummy: master's thesis</a>, - Ig Nobel prize winner 2021, <i>Swedish National Road and Transport Research Institute</i>
+	</p>
+
+	<div class="text-2xl font-serif">Blog</div>
+
+	<table>
+		{
+			sortedPosts.map((post) => (
+				<tr class="block mb-2">
+					<td>
+						<a href={post.url}>{post.title}</a>
+					</td>
+				</tr>
+			))
+		}
+	</table>
+
+	<div class="text-2xl font-serif">Personal projects</div>
+
+	<p>Lorem ipsum</p>
+</Layout>

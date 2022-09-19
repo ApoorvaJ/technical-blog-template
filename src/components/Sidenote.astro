@@ -1,0 +1,27 @@
+---
+export interface Props {
+	numbered: boolean;
+}
+
+const { numbered = true } = Astro.props;
+---
+
+{numbered && <label class="sidenote-number" />}
+<span
+	class="block w-full lg:w-[50%] mx-auto my-2 lg:mr-[-60%] px-6 py-2 lg:p-0 float-left lg:float-right lg:clear-right"
+	id={numbered ? "note" : ""}
+>
+	<slot />
+</span>
+
+<style>
+	.sidenote-number:after {
+		counter-increment: sidenote-counter;
+		content: counter(sidenote-counter);
+		@apply text-xs align-super;
+	}
+	#note::before {
+		content: counter(sidenote-counter);
+		@apply text-xs align-super;
+	}
+</style>

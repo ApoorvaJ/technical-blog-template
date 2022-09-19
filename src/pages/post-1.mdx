@@ -1,0 +1,65 @@
+---
+
+title: "Post 1"
+date: 15 March 2022
+layout: ../layouts/Page.astro
+
+---
+import Sidenote from '../components/Sidenote.astro';
+
+This is a sample post, and this is an introduction. You can just write `# Table of contents` in your Markdown to automagically generate one!
+
+# Table of contents
+
+# Sidenotes
+
+You can also add sidenotes<Sidenote>
+Look into the .mdx file to see how this is done!
+</Sidenote> right in the Markdown. Sidenotes will render on the side large screens, but will automatically get reformatted on small devices. Nice, responsive CSS. Here's another reference.<Sidenote>
+The sidenote numbers will increment automatically.</Sidenote>
+
+![](/images/image.jpg)
+
+ You can create un-numbered references too.<Sidenote numbered={false}>Just use the syntax `<Sidenote numbered={false}>` in the Markdown.
+Foo</Sidenote>
+
+# Blog post list
+
+If you go the [home page](/)this blog post and others like it are automatically enumerated and sorted by date.
+
+# RSS feed
+
+The RSS feed is automatically generated too. Look in the footer for the link.
+
+# Syntax highlighting
+
+Syntax highlighting happens at build time, so your users don't have to download client-side libraries for this.
+
+```cpp
+int main() {
+    printf("Hello world\n");
+}
+```
+
+# Math support
+
+$\LaTeX$ syntax is supported. Just type the notation between `$` signs in markdown.
+
+It works with inlined math as seen above, but also with standalone math:
+
+$ \begin{aligned}
+A &= B \cr
+\frac{C + D}{\pi} &= E \cr
+\end{aligned} $
+
+# Custom HTML
+
+You can add custom HTML elements in the Markdown. For example:
+
+<input type="range" min="0" max="1" value="0.5" step="0.01" class="slider accent-blue-500 w-3/6" id="slider" oninput=""/>
+
+# Custom Javascript
+
+You can add custom javascript in the Markdown as follows:
+
+`<script is:inline src="/foo.js"></script>`, where `foo.js` would be located in the `public` folder of your repo.

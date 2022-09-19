@@ -1,0 +1,100 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title, frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+			integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
+			crossorigin="anonymous"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<title>{frontmatter ? frontmatter.title : title}</title>
+	</head>
+	<body class="bg-white text-zinc-700 my-4">
+		<div id="content" class="w-[90%] lg:w-5/6 lg:max-w-5xl mx-auto">
+			<div class="flex justify-between font-serif">
+				<span><a href="/" class="text-black">home</a></span>
+			</div>
+
+			{
+				frontmatter && (
+					<h1 class="font-serif text-4xl mb-2">
+						{frontmatter.title}
+					</h1>
+					<div class="mb-12 font-serif">{frontmatter.date}</div>
+				)
+			}
+
+			<slot />
+			<hr />
+			<div class="flex justify-end font-serif">
+				<span>
+					<a href="/rss.xml" class="text-black">rss</a>,
+				</span>
+			</div>
+		</div>
+
+		<style is:global>
+			body {
+				counter-reset: sidenote-counter;
+			}
+			h1 {
+				@apply text-3xl font-serif mb-4 mt-10;
+			}
+			h2 {
+				@apply text-2xl font-serif mb-4 mt-10;
+			}
+			h3 {
+				@apply text-xl font-serif mb-4 mt-10;
+			}
+			a {
+				/* Without the `!important`, anchors aren't colored in the
+				production build. This might be a bug in Astro. */
+				@apply underline text-blue-600 !important;
+			}
+			#content > p,
+			#content > div,
+			#content > ul,
+			#content > ol,
+			#content > video,
+			#content > iframe,
+			#content > hr,
+			#content > table {
+				@apply mb-6 lg:w-4/6;
+			}
+			#content > pre {
+				@apply text-xs rounded-md p-2 border border-stone-200 mb-6;
+			}
+			ul ul {
+				@apply indent-4;
+			}
+			ul ul ul {
+				@apply indent-8;
+			}
+			ol {
+				@apply list-decimal list-inside lg:list-outside;
+			}
+			ul {
+				@apply list-disc list-inside lg:list-outside;
+			}
+			h1#table-of-contents + ul,
+			h1#table-of-contents + ul ul,
+			 {
+				@apply list-none;
+			}
+			code {
+				@apply text-sm;
+			}
+		</style>
+	</body>
+</html>
