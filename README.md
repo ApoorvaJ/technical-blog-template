@@ -2,9 +2,9 @@
 
 This is a template I wrote for [my blog](https://apoorvaj.io). I figured it would be useful to other folks too, so I'm releasing it into the public domain.
 
-[Live demo](https://main--technical-blog-template.netlify.app/)
+[Live demo](https://main--technical-blog-template.netlify.app/post-1/)
 
-<a href="https://main--technical-blog-template.netlify.app/">![image](https://user-images.githubusercontent.com/2312221/191051841-7bfb2a2c-8773-4f14-8f13-247397ff4d19.png)</a>
+<a href="https://main--technical-blog-template.netlify.app/post-1/">![image](https://user-images.githubusercontent.com/2312221/191051841-7bfb2a2c-8773-4f14-8f13-247397ff4d19.png)</a>
 
 ## Features
 
